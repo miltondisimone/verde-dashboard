@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Technical Write-Up: Financial Dashboard — Design & Implementation
+Design & Architecture Decisions
+The project follows a feature-first folder structure combined with principles inspired by Atomic Design. This modular approach allowed for reusability, better testability, and clean separation of concerns. Each feature (e.g., transactions, filters) owns its UI and state logic, while shared UI primitives like FilterSelect and Pagination were abstracted for global reuse.
 
-## Getting Started
+For state management, I used Zustand, which provides a lightweight, scalable store with minimal boilerplate—ideal for local UI state like filters. Components are written as client components ('use client') since interactivity is required (e.g., filter dropdowns, paginated lists).
 
-First, run the development server:
+Tools & Libraries Used
+React + TypeScript — Core tech stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Zustand — For localized, performant state management
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+TailwindCSS — For fast, consistent, and accessible styling
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Jest + React Testing Library — For writing isolated and user-focused tests
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Next.js (app router) — Framework used to enable file-based routing and optimizations
 
-## Learn More
+These choices helped speed up development while keeping the project maintainable and well-structured.
 
-To learn more about Next.js, take a look at the following resources:
+ Performance, Accessibility, and Maintainability
+Performance:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Used useEffect and memoization patterns to avoid unnecessary re-renders.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Pagination limits DOM nodes on screen at any time.
 
-## Deploy on Vercel
+Tailwind utility classes avoid CSS bloat.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Accessibility:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Every form element is paired with a <label> using htmlFor.
+
+Keyboard navigation is supported natively via semantic HTML elements.
+
+Button roles and contrast ratios follow WCAG guidelines.
+
+Maintainability:
+
+Created reusable components (FilterSelect, Pagination) with isolated tests.
+
+Followed a clear folder structure and consistent naming.
+
+Used TypeScript to enforce prop correctness and catch logic issues early.
+
+Use of AI Tools
+I used AI (ChatGPT-4o) as a collaborative pair programmer throughout the project. It helped with:
+
+Refactoring ideas and best practices
+
+Test scaffolding (unit and integration)
+
+Zustand mocking strategies
+
+Clarifying accessibility and performance tradeoffs
+
+While I made all the architectural decisions myself, AI significantly boosted my speed by offloading boilerplate and verifying logic quickly.
+
+Improvements with More Time
+Given more time, I would:
+
+Add filter persistence via query params or localStorage
+
+Implement debounced search or range filters
+
+Add loading and error states for a more robust UI
+
+Write end-to-end tests using Playwright or Cypress
+
+Integrate with a backend (or mock API) to simulate real transaction data
