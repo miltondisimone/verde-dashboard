@@ -1,69 +1,77 @@
-Technical Write-Up: Financial Dashboard — Design & Implementation
-Design & Architecture Decisions
-The project follows a feature-first folder structure combined with principles inspired by Atomic Design. This modular approach allowed for reusability, better testability, and clean separation of concerns. Each feature (e.g., transactions, filters) owns its UI and state logic, while shared UI primitives like FilterSelect and Pagination were abstracted for global reuse.
+# 💹 Verde Dashboard
 
-For state management, I used Zustand, which provides a lightweight, scalable store with minimal boilerplate—ideal for local UI state like filters. Components are written as client components ('use client') since interactivity is required (e.g., filter dropdowns, paginated lists).
+A modern financial dashboard built with React, Next.js (App Router), Zustand, TailwindCSS, and tested with Jest + React Testing Library.
 
-Tools & Libraries Used
-React + TypeScript — Core tech stack
+> ✅ Lighthouse Score: **100 / 100 / 100 / 100**  
+> Performance, Accessibility, Best Practices, SEO — all fully passed
 
-Zustand — For localized, performant state management
+---
 
-TailwindCSS — For fast, consistent, and accessible styling
+## 🧠 Design & Architecture Decisions
 
-Jest + React Testing Library — For writing isolated and user-focused tests
+This project uses a **feature-first folder structure** combined with ideas from **Atomic Design** to enable modularity, reusability, and testability. Each feature (e.g., transactions, filters) owns its logic and UI components. Reusable primitives like `FilterSelect` and `Pagination` are shared across features.
 
-Next.js (app router) — Framework used to enable file-based routing and optimizations
+For state management, I chose **Zustand** — a minimal and scalable store that’s well-suited for local UI state (like filters) without unnecessary boilerplate. All interactive components are client-rendered (`'use client'`) to support dynamic state changes like filtering and pagination.
 
-These choices helped speed up development while keeping the project maintainable and well-structured.
+---
 
- Performance, Accessibility, and Maintainability
-Performance:
+## ⚙️ Tools & Libraries Used
 
-Used useEffect and memoization patterns to avoid unnecessary re-renders.
+- **React + TypeScript** – Core tech stack for type-safe UI development
+- **Next.js (App Router)** – For file-based routing and optimization
+- **Zustand** – Lightweight state management
+- **TailwindCSS** – Fast, consistent, and accessible utility-first styling
+- **Jest + React Testing Library** – For unit and integration testing
 
-Pagination limits DOM nodes on screen at any time.
+These tools helped speed up development, ensured maintainability, and aligned well with modern front-end best practices.
 
-Tailwind utility classes avoid CSS bloat.
+---
 
-Accessibility:
+## 🚀 Performance, Accessibility & Maintainability
 
-Every form element is paired with a <label> using htmlFor.
+### 📈 Performance
+- `useEffect` and controlled state updates to prevent extra re-renders
+- Pagination limits DOM elements on-screen at any time
+- Tailwind ensures no CSS bloat due to unused classes
 
-Keyboard navigation is supported natively via semantic HTML elements.
+### ♿ Accessibility
+- Proper label associations (`<label htmlFor="">`)
+- Keyboard-friendly navigation via semantic HTML
+- High contrast ratios and roles follow **WCAG guidelines**
 
-Button roles and contrast ratios follow WCAG guidelines.
+### 🧼 Maintainability
+- Isolated reusable components like `FilterSelect` and `Pagination`
+- Consistent file structure and naming conventions
+- Strong typing with TypeScript for safety and self-documentation
 
-Maintainability:
+---
 
-Created reusable components (FilterSelect, Pagination) with isolated tests.
+## 🤖 Use of AI Tools
 
-Followed a clear folder structure and consistent naming.
+I used **ChatGPT-4o** as a collaborative pair programmer to:
+- Refactor architecture and improve code clarity
+- Scaffold unit and integration tests quickly
+- Mock Zustand stores efficiently
+- Double-check accessibility and performance trade-offs
 
-Used TypeScript to enforce prop correctness and catch logic issues early.
+> All implementation and decisions were my own — AI helped accelerate the process by handling boilerplate and confirming patterns.
 
-Use of AI Tools
-I used AI (ChatGPT-4o) as a collaborative pair programmer throughout the project. It helped with:
+---
 
-Refactoring ideas and best practices
+## 🔧 Improvements with More Time
 
-Test scaffolding (unit and integration)
+If given more time, I would:
 
-Zustand mocking strategies
+- Persist filters via URL query params or localStorage
+- Add debounced text/range filters
+- Introduce loading and error UI states
+- Write E2E tests using Playwright or Cypress
+- Connect to a backend or mock API for real transaction simulation
 
-Clarifying accessibility and performance tradeoffs
+---
 
-While I made all the architectural decisions myself, AI significantly boosted my speed by offloading boilerplate and verifying logic quickly.
+## 🧪 Local Setup
 
-Improvements with More Time
-Given more time, I would:
-
-Add filter persistence via query params or localStorage
-
-Implement debounced search or range filters
-
-Add loading and error states for a more robust UI
-
-Write end-to-end tests using Playwright or Cypress
-
-Integrate with a backend (or mock API) to simulate real transaction data
+```bash
+npm install
+npm run dev
