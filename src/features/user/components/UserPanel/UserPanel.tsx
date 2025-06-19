@@ -20,7 +20,7 @@ export const UserPanel = () => {
   }
 
   return (
-    <div className="flex items-center flex-col gap-6 bg-white rounded-xl p-6 shadow-md min-h-196">
+    <div className="flex items-center flex-col gap-6 bg-white rounded-xl p-6 shadow-md min-h-196 min-h-[0px]">
       <UserInfo
         avatarUrl={user.avatarUrl}
         name={user.name}

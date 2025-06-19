@@ -18,7 +18,7 @@ export const Pagination = ({ totalItems, itemsPerPage = 10, onPageChange }: Pagi
   }
 
   return (
-    <div className="flex justify-center mt-8 gap-3 px-4 py-4">
+    <div className="flex flex-wrap justify-center mt-8 gap-3 px-4 py-4">
       {Array.from({ length: totalPages }, (_, i) => {
         const pageNum = i + 1
         const isActive = currentPage === pageNum
