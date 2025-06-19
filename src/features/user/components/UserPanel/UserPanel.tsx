@@ -1,7 +1,5 @@
 'use client'
 
-import Image from 'next/image'
-
 import { useUser } from '../../hooks/useUser'
 import { useTransactions } from '@/features/transactions/hooks/useTransactions'
 import { UserInfo } from './UserInfo'
@@ -10,7 +8,7 @@ import { BalanceOverview } from './BalanceOverview'
 
 export const UserPanel = () => {
   const { user, isLoading: loadingUser } = useUser()
-  const { transactions, isLoading: loadingTxs } = useTransactions()
+  const { transactions } = useTransactions()
   const { sent: amountSent, received: amountReceived, total: totalBalance } = useTransactionsStats(transactions);
 
   if (loadingUser || !user) {
