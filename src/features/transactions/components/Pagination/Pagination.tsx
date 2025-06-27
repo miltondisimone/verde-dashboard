@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { PaginationProps } from '../../types'
+import './pagination.css';
 
 export const Pagination = ({ totalItems, itemsPerPage = 10, onPageChange }: PaginationProps) => {
   const totalPages = Math.ceil(totalItems / itemsPerPage)
@@ -27,9 +28,9 @@ export const Pagination = ({ totalItems, itemsPerPage = 10, onPageChange }: Pagi
           <button
             key={pageNum}
             onClick={() => handlePageClick(pageNum)}
-            className={`px-5 py-2 rounded-lg text-sm font-semibold transition-colors duration-200 shadow-sm ${
+            className={`px-5 py-2 text-sm font-semibold transition-colors duration-200 shadow-sm ${
               isActive
-                ? 'bg-green-600 text-white'
+                ? 'activePaginationButton text-white'
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
           >

@@ -1,5 +1,7 @@
+import './tableWrapper.css'
+
 export const TableHeader = () => (
-  <thead className="bg-gray-100 text-gray-700">
+  <thead className="tableHeader">
     <tr>
       <th scope="col" className="text-left px-4 py-3">Date</th>
       <th scope="col" className="text-left px-4 py-3">Description</th>

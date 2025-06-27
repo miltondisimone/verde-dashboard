@@ -24,7 +24,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <meta name="description" content="View your financial transactions and balance overview in one place." />
         <title>Verde Dashboard</title>
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} bg-gray-100 text-gray-900`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} text-gray-900`}>
         {children}
       </body>
     </html>

@@ -1,23 +1,24 @@
 import Image from 'next/image'
 import { UserInfoProps } from '../../types'
+import './userInfo.css'
 
 export const UserInfo = ({ name, email, avatarUrl }: UserInfoProps) => {
   return (
-    <div className="text-center border-[#e8e8e8] p-4 rounded-[1rem] text-sm">
+    <div className="userInfoWrapper">
       <Image
         src={avatarUrl}
         alt={name}
         width={120}
         height={120}
-        className="object-cover m-auto"
+        className="object-cover m-auto rounded-full"
       />
 
-      <dl>
+      <dl className='nameWrapper'>
         <dt className="sr-only">Name</dt>
-        <dd className="text-base font-semibold text-gray-900">{name}</dd>
+        <dd className="text-base font-semibold userName">{name}</dd>
 
         <dt className="sr-only">Email</dt>
-        <dd className="text-gray-600">{email}</dd>
+        <dd className="userEmail">{email}</dd>
       </dl>
     </div>
   )

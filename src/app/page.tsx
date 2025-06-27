@@ -5,23 +5,26 @@ import { TableWrapper } from '@/features/transactions/components/TransactionsTab
 
 const Home = () => {
   return (
-    <div className="px-4 py-6 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <h1 className="mb-8 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
+    <>
+      <h1 className="pageHeader">
         Financial Dashboard
       </h1>
+      <div className="px-4 py-6 sm:px-6 lg:px-8 max-w-7xl mx-auto">
 
-      <div className="flex flex-col lg:flex-row gap-8">
-        {/* Sidebar */}
-        <aside className="lg:w-1/4 w-full">
-          <UserPanel />
-        </aside>
 
-        {/* Main Content */}
-        <main className="flex-1">
-          <TableWrapper />
-        </main>
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Sidebar */}
+          <aside className="lg:w-1/5 w-full">
+            <UserPanel />
+          </aside>
+
+          {/* Main Content */}
+          <main className="flex-1">
+            <TableWrapper />
+          </main>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

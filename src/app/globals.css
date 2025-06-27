@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+body {
+  background-color: #f2f5f5;
+  font-family: Work Sans, Work Sans Fallback;
+  color: #05544a;
+}
+
+.pageHeader {
+  background: #0d534a;
+  border-radius: 0 0 2px 2px;
+  color: #ffffff;
+  font-size: 4rem;
+  text-align: center;
+}

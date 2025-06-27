@@ -1,0 +1,15 @@
+.separator {
+  background-color: rgba(0, 0, 0, .1)
+}
+
+.totalBalance {
+  color: #2B7A4B;
+}
+
+.sent {
+  color: #F4A261;
+}
+
+.received {
+  color: #58A47A;
+}

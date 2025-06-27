@@ -8,6 +8,7 @@ import { useState, useEffect, useMemo } from 'react'
 import { Pagination } from '../Pagination/Pagination'
 import { TableHeader } from './TableHeader'
 import { TableRow } from './TableRow'
+import './tableWrapper.css'
 
 const ITEMS_PER_PAGE = 10
 
@@ -34,8 +35,8 @@ export const TableWrapper = () => {
   const uniqueCategories = Array.from(new Set(transactions.map((t) => t.category)))
 
   return (
-    <div className="flex flex-col bg-white rounded-xl p-6 shadow-md min-h-196">
-      <h1 className="text-xl font-semibold mb-4 text-gray-800">Transaction history</h1>
+    <div className="flex flex-col tableWrapper p-6 shadow-md min-h-196">
+      <h1 className="text-xl font-semibold mb-4">Transaction history</h1>
       <FilterBar categories={uniqueCategories} />
 
       <div className="overflow-x-auto mt-4 shadow-md rounded-xl min-h-124">
